@@ -14,35 +14,30 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    awesomeList.innerHTML = `<span class="title">${title}</span>
-              <br />
-              <span class="autor">${author}</span><br />
-              <button class="romoveBtn">Remove</button>`;
+    const bookItem = document.createElement("div");
+    const bookTitle = document.createElement("span");
+    const br = document.createElement("br");
+    const bookAuthor = document.createElement("span");
+    const removeBtn = document.createElement("button");
+    const hr = document.createElement("hr");
+    const li = document.createElement("br");
 
-    // const bookItem = document.createElement("div");
-    // const bookTitle = document.createElement("span");
-    // const br = document.createElement("br");
-    // const bookAuthor = document.createElement("span");
-    // const removeBtn = document.createElement("button");
-    // const hr = document.createElement("hr");
-    // const ul = document.createElement("ul");
-
-    // bookTitle.textContent = title;
-    // bookAuthor.textContent = author;
-    // removeBtn.textContent = "Remove";
+    bookTitle.textContent = title;
+    bookAuthor.textContent = author;
+    removeBtn.textContent = "Remove";
 
     removeBtn.addEventListener("click", function () {
-      awesomeList.remove();
+      bookItem.remove();
     });
 
-    // bookItem.appendChild(bookTitle);
-    // bookItem.appendChild(br);
-    // bookItem.appendChild(bookAuthor);
-    // bookItem.appendChild(ul);
-    // bookItem.appendChild(removeBtn);
-    // bookItem.appendChild(hr);
+    bookItem.appendChild(bookTitle);
+    bookItem.appendChild(br);
+    bookItem.appendChild(bookAuthor);
+    bookItem.appendChild(li);
+    bookItem.appendChild(removeBtn);
+    bookItem.appendChild(hr);
 
-    // awesomeList.appendChild(bookItem);
+    awesomeList.appendChild(bookItem);
 
     textfieldTitle.value = "";
     textfieldAuthor.value = "";
