@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const textfieldAuthor = document.getElementById("textfieldAuthor");
   const btnAdd = document.getElementById("btnAdd");
 
+  const storedBooks = localStorage.getItem("books");
+  if (storedBooks) {
+    const books = JSON.parse(storedBooks);
+    books.forEach((book) => {
+      createBookItem(book.title, book.author);
+    });
+  }
+
   btnAdd.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -14,6 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    createBookItem(title, author);
+
+    saveBooks();
+
+    textfieldTitle.value = "";
+    textfieldAuthor.value = "";
+  });
+
+  function createBookItem(title, author) {
     const bookItem = document.createElement("div");
     const bookTitle = document.createElement("span");
     const br = document.createElement("br");
@@ -28,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     removeBtn.addEventListener("click", function () {
       bookItem.remove();
+      saveBooks();
     });
 
     bookItem.appendChild(bookTitle);
@@ -38,8 +56,19 @@ document.addEventListener("DOMContentLoaded", function () {
     bookItem.appendChild(hr);
 
     awesomeList.appendChild(bookItem);
+  }
 
-    textfieldTitle.value = "";
-    textfieldAuthor.value = "";
-  });
+  function saveBooks() {
+    const books = Array.from(awesomeList.children);
+
+    const bookData = [];
+
+    books.forEach((book) => {
+      const title = book.querySelector("span").textContent;
+      const author = book.querySelector("span + br + span").textContent;
+      const bookObj = { title, author };
+      bookData.push(bookObj);
+    });
+    localStorage.setItem("books", JSON.stringify(bookData));
+  }
 });
