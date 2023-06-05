@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const awesomeList = document.getElementById('awesomeList');
   const textfieldTitle = document.getElementById('textfieldTitle');
   const textfieldAuthor = document.getElementById('textfieldAuthor');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  btnAdd.addEventListener('click', function (event) {
+  btnAdd.addEventListener('click', (event) => {
     event.preventDefault();
 
     const title = textfieldTitle.value;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     bookAuthor.textContent = author;
     removeBtn.textContent = 'Remove';
 
-    removeBtn.addEventListener('click', function () {
+    removeBtn.addEventListener('click', () => {
       bookItem.remove();
       saveBooks();
     });
