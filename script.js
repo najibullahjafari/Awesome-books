@@ -1,8 +1,34 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const awesomeList = document.getElementById('awesomeList');
   const textfieldTitle = document.getElementById('textfieldTitle');
   const textfieldAuthor = document.getElementById('textfieldAuthor');
   const btnAdd = document.getElementById('btnAdd');
+
+  const storedBooks = localStorage.getItem('books');
+  if (storedBooks) {
+    const books = JSON.parse(storedBooks);
+    books.forEach((book) => {
+      createBookItem(book.title, book.author);
+    });
+  }
+
+  btnAdd.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const title = textfieldTitle.value;
+    const author = textfieldAuthor.value;
+
+    if (title.trim() === '' || author.trim() === '') {
+      return;
+    }
+
+    createBookItem(title, author);
+
+    saveBooks();
+
+    textfieldTitle.value = '';
+    textfieldAuthor.value = '';
+  });
 
   function createBookItem(title, author) {
     const bookItem = document.createElement('div');
@@ -17,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     bookAuthor.textContent = author;
     removeBtn.textContent = 'Remove';
 
-    removeBtn.addEventListener('click', function () {
+    removeBtn.addEventListener('click', () => {
       bookItem.remove();
       saveBooks();
     });
@@ -37,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const bookData = [];
 
-    books.forEach(function (book) {
+    books.forEach((book) => {
       const title = book.querySelector('span').textContent;
       const author = book.querySelector('span + br + span').textContent;
       const bookObj = { title, author };
@@ -45,30 +71,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     localStorage.setItem('books', JSON.stringify(bookData));
   }
-
-  const storedBooks = localStorage.getItem('books');
-  if (storedBooks) {
-    const books = JSON.parse(storedBooks);
-    books.forEach(function (book) {
-      createBookItem(book.title, book.author);
-    });
-  }
-
-  btnAdd.addEventListener('click', function (event) {
-    event.preventDefault();
-
-    const title = textfieldTitle.value;
-    const author = textfieldAuthor.value;
-
-    if (title.trim() === '' || author.trim() === '') {
-      return;
-    }
-
-    createBookItem(title, author);
-
-    saveBooks();
-
-    textfieldTitle.value = '';
-    textfieldAuthor.value = '';
-  });
 });
