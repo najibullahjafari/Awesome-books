@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const awesomeList = document.getElementById("awesomeList");
-  const textfieldTitle = document.getElementById("textfieldTitle");
-  const textfieldAuthor = document.getElementById("textfieldAuthor");
-  const btnAdd = document.getElementById("btnAdd");
+document.addEventListener('DOMContentLoaded', function () {
+  const awesomeList = document.getElementById('awesomeList');
+  const textfieldTitle = document.getElementById('textfieldTitle');
+  const textfieldAuthor = document.getElementById('textfieldAuthor');
+  const btnAdd = document.getElementById('btnAdd');
 
-  const storedBooks = localStorage.getItem("books");
+  const storedBooks = localStorage.getItem('books');
   if (storedBooks) {
     const books = JSON.parse(storedBooks);
     books.forEach((book) => {
@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  btnAdd.addEventListener("click", function (event) {
+  btnAdd.addEventListener('click', function (event) {
     event.preventDefault();
 
     const title = textfieldTitle.value;
     const author = textfieldAuthor.value;
 
-    if (title.trim() === "" || author.trim() === "") {
+    if (title.trim() === '' || author.trim() === '') {
       return;
     }
 
@@ -26,24 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     saveBooks();
 
-    textfieldTitle.value = "";
-    textfieldAuthor.value = "";
+    textfieldTitle.value = '';
+    textfieldAuthor.value = '';
   });
 
   function createBookItem(title, author) {
-    const bookItem = document.createElement("div");
-    const bookTitle = document.createElement("span");
-    const br = document.createElement("br");
-    const bookAuthor = document.createElement("span");
-    const removeBtn = document.createElement("button");
-    const hr = document.createElement("hr");
-    const li = document.createElement("br");
+    const bookItem = document.createElement('div');
+    const bookTitle = document.createElement('span');
+    const br = document.createElement('br');
+    const bookAuthor = document.createElement('span');
+    const removeBtn = document.createElement('button');
+    const hr = document.createElement('hr');
+    const li = document.createElement('br');
 
     bookTitle.textContent = title;
     bookAuthor.textContent = author;
-    removeBtn.textContent = "Remove";
+    removeBtn.textContent = 'Remove';
 
-    removeBtn.addEventListener("click", function () {
+    removeBtn.addEventListener('click', function () {
       bookItem.remove();
       saveBooks();
     });
@@ -64,11 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const bookData = [];
 
     books.forEach((book) => {
-      const title = book.querySelector("span").textContent;
-      const author = book.querySelector("span + br + span").textContent;
+      const title = book.querySelector('span').textContent;
+      const author = book.querySelector('span + br + span').textContent;
       const bookObj = { title, author };
       bookData.push(bookObj);
     });
-    localStorage.setItem("books", JSON.stringify(bookData));
+    localStorage.setItem('books', JSON.stringify(bookData));
   }
 });
