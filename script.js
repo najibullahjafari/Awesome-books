@@ -1,18 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
   const awesomeList = document.getElementById('awesomeList');
   const textfieldTitle = document.getElementById('textfieldTitle');
   const textfieldAuthor = document.getElementById('textfieldAuthor');
   const btnAdd = document.getElementById('btnAdd');
 
-  const storedBooks = localStorage.getItem('books');
-  if (storedBooks) {
-    const books = JSON.parse(storedBooks);
-    books.forEach((book) => {
-      createBookItem(book.title, book.author);
-    });
-  }
-
-  btnAdd.addEventListener('click', (event) => {
+  btnAdd.addEventListener("click", function (event) {
     event.preventDefault();
 
     const title = textfieldTitle.value;
@@ -43,9 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     bookAuthor.textContent = author;
     removeBtn.textContent = 'Remove';
 
-    removeBtn.addEventListener('click', () => {
-      bookItem.remove();
-      saveBooks();
+    removeBtn.addEventListener("click", function () {
+      awesomeList.remove();
     });
 
     bookItem.appendChild(bookTitle);
