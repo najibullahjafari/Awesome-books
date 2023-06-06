@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 module.exports = {
     "env": {
         "browser": true,
@@ -5,21 +7,17 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:react/recommended"
     ],
-    "parser": "@typescript-eslint/parser",
+    "overrides": [
+    ],
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
+        "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "@typescript-eslint"
+        "react"
     ],
     "rules": {
     }
-};
+}
