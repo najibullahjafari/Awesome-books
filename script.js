@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     removeBtn.textContent = 'Remove';
 
     removeBtn.addEventListener('click', function () {
-      bookItem.remove();
+      removeBook(bookItem);
       saveBooks();
     });
 
@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
     bookItem.appendChild(lii);
 
     awesomeList.appendChild(bookItem);
+  }
+
+  function removeBook(bookItem) {
+    awesomeList.removeChild(bookItem);
   }
 
   function saveBooks() {
