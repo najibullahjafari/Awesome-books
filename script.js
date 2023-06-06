@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const removeBtn = document.createElement('button');
     const hr = document.createElement('hr');
     const li = document.createElement('br');
+    const lii = document.createElement('br');
 
     bookTitle.textContent = title;
     bookAuthor.textContent = author;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     bookItem.appendChild(li);
     bookItem.appendChild(removeBtn);
     bookItem.appendChild(hr);
+    bookItem.appendChild(lii);
 
     awesomeList.appendChild(bookItem);
   }
