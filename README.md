@@ -69,7 +69,7 @@ In this project best coding practices is used.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-Check out the live demo of this project [here]()).
+<!-- Check out the live demo of this project [here]()). -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -193,6 +193,7 @@ Do you like this project? So don't wait to give one star!
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
+I thanks from Microverse!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
