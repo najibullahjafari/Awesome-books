@@ -3,26 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Collection</title>
-
-    <link rel="stylesheet" href="style.css" />
+    <title>Awesome Books</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="container">
-      <h1>Book Collection</h1>
-      <div
-        id="awesomeList"
-      ></div>
-      <form id="bookForm" class="bookForm">
-        <input type="text" id="textfieldTitle" placeholder="Title" required />
-        <input type="text" id="textfieldAuthor" placeholder="Author" required />
-        <button type="submit" id="btnAdd">Add Book</button>
-      </form>
+  <body class="bdy">
+    <div class="container mt-5">
+      <h1>All Awesome Books</h1>
+      <div id="bookList" class="border"></div>
+      <div class="mb-4 textfield-and-btn">
+        <span class="line"></span>
+        <h5 class="add-book-btn">Add a new book</h5>
+        <div class="textfield-and-bt">
+          <div class="textfields">
+            <div class="textfield">
+              <input
+                type="text"
+                id="titleInput"
+                class="form-control"
+                placeholder="Title"
+              />
+            </div>
+            <div class="textfield">
+              <input
+                type="text"
+                id="authorInput"
+                class="form-control"
+                placeholder="Author"
+              />
+            </div>
+          </div>
+          <button id="addBtn" type="submit" class="btn btn-primary mt-2">Add</button>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

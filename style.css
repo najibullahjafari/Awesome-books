@@ -1,89 +1,87 @@
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-input[type='text'] {
-  flex-grow: 1;
-  padding: 5px;
-  width: 300px;
-}
-
-button {
-  padding: 5px 10px;
-}
-
-#btnAdd {
-  width: 300px;
-}
-
-#awesomeList {
-  margin-top: 20px;
-  margin: 4px;
-  padding: 5px;
   justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
-/* .container {
-  display: flex;
-  flex-direction: row;
-} */
+#booklist {
+  padding: 0 !important;
+  min-height: 200px;
+}
 
 .book-item {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.book-item .book-details {
-  flex-grow: 1;
-}
-
-.book-item .book-details .book-title {
-  font-weight: bold;
-}
-
-.book-item .book-details .book-author {
-  color: #777;
-}
-
-.book-item .remove-btn {
-  background-color: #f44336;
+  background-color: #726f6f;
   color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
+  padding: 5px;
+  margin: 2px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.bookForm {
+.book-item:nth-child(even) {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.border {
+  border: 1px solid #000 !important;
+  margin-bottom: 12px !important;
+}
+
+.textfields {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.book-details {
-  display: flex;
-  flex-direction: row;
   gap: 12px;
 }
 
-.bookContainer {
-  width: 50%;
+.textfield {
+  width: 200px;
+}
+
+.textfield-and-btn {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.add-book-btn {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  border-top: 2px black;
+  margin: 24px;
+  padding: 12px;
+}
+
+.textfield-and-bt {
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  margin-left: 138px;
+}
+
+body {
+  background-color: solid #0f130a;
+  background-size: contain;
+  backdrop-filter: blur(14px);
+}
+
+.container {
+  background-color: #dcd9d9;
+  backdrop-filter: none;
+  overflow: auto;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.line {
+  display: inline-block;
+  padding: 10px;
+  border-bottom: 2px solid #000;
+  width: 200px;
 }

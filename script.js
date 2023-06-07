@@ -1,99 +1,90 @@
-// CL
-
 class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
+    this.id = Date.now();
   }
 }
 
 class BookCollection {
   constructor() {
-    this.books = this.loadBooksFromLocalStorage() || [];
-    this.render();
+    this.books = [];
   }
 
+  saveBooks() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+  
   addBook(title, author) {
     const book = new Book(title, author);
     this.books.push(book);
-    this.saveBooksToLocalStorage();
-    this.render();
+    this.saveBooks();
+    this.displayBooks();
   }
 
-  removeBook(index) {
-    this.books.splice(index, 1);
-    this.saveBooksToLocalStorage();
-    this.render();
+  removeBook(id) {
+    this.books = this.books.filter((book) => book.id !== id);
+    this.saveBooks();
+    this.displayBooks();
   }
 
-  saveBooksToLocalStorage() {
-    localStorage.setItem('books', JSON.stringify(this.books));
-  }
-
-  loadBooksFromLocalStorage() {
+  loadBooks() {
     const storedBooks = localStorage.getItem('books');
-    return storedBooks ? JSON.parse(storedBooks).map(bookData => new Book(bookData.title, bookData.author)) : null;
+    if (storedBooks) {
+      this.books = JSON.parse(storedBooks);
+    }
   }
 
-  render() {
-    const awesomeList = document.getElementById('awesomeList');
-    awesomeList.innerHTML = '';
+  displayBooks() {
+    const bookList = document.getElementById('bookList');
+    bookList.innerHTML = '';
 
     this.books.forEach((book, index) => {
       const bookItem = document.createElement('div');
-      bookItem.className = 'book-item';
+      bookItem.classList.add('book-item');
+      if (index % 2 === 0) {
+        bookItem.classList.add('even');
+      } else {
+        bookItem.classList.add('odd');
+      }
 
-      const bookDetails = document.createElement('div');
-      bookDetails.className = 'book-details';
-      
-      const bookTextCon = document.createElement('div');
-      bookDetails.className = 'bookContainer';
-
-      const bookTitle = document.createElement('span');
-      bookTitle.className = 'book-title';
-      bookTitle.textContent = book.title;
-
-      const bookAuthor = document.createElement('span');
-      bookAuthor.className = 'book-author';
-      bookAuthor.textContent = book.author;
+      const bookInfo = document.createElement('span');
+      bookInfo.textContent = `${book.title} by ${book.author}`;
 
       const removeBtn = document.createElement('button');
-      removeBtn.className = 'remove-btn';
+      removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
       removeBtn.textContent = 'Remove';
-      removeBtn.addEventListener('click', () => this.removeBook(index));
+      removeBtn.addEventListener('click', () => this.removeBook(book.id));
 
-      bookDetails.appendChild(bookTitle);
-      bookDetails.appendChild(document.createElement('br'));
-      bookDetails.appendChild(bookAuthor);
-
-      bookItem.appendChild(bookDetails);
+      bookItem.appendChild(bookInfo);
       bookItem.appendChild(removeBtn);
 
-      awesomeList.appendChild(bookItem);
+      bookList.appendChild(bookItem);
     });
+
+    if (this.books.length > 0) {
+      bookList.classList.add('border');
+    } else {
+      bookList.classList.remove('border');
+    }
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const bookForm = document.getElementById('bookForm');
-  const textfieldTitle = document.getElementById('textfieldTitle');
-  const textfieldAuthor = document.getElementById('textfieldAuthor');
+const bookCollection = new BookCollection();
+bookCollection.loadBooks();
+bookCollection.displayBooks();
 
-  const bookCollection = new BookCollection();
+const addBtn = document.getElementById('addBtn');
+addBtn.addEventListener('click', () => {
+  const titleInput = document.getElementById('titleInput');
+  const authorInput = document.getElementById('authorInput');
 
-  bookForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+  const title = titleInput.value.trim();
+  const author = authorInput.value.trim();
 
-    const title = textfieldTitle.value;
-    const author = textfieldAuthor.value;
-
-    if (title.trim() === '' || author.trim() === '') {
-      return;
-    }
-
+  if (title !== '' && author !== '') {
     bookCollection.addBook(title, author);
-
-    textfieldTitle.value = '';
-    textfieldAuthor.value = '';
-  });
+    titleInput.value = '';
+    authorInput.value = '';
+  }
 });
