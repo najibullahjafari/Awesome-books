@@ -2,34 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome Books</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Awesome book</title>
   </head>
-  <body>
-    <main>
-      <article>
-        <div class="awsome-book-container">
-          <div class="awsome-book-h1"><h1>Awsome book</h1></div>
-          <br />
-          <div class="awsome-book-lits">
-            <div id="awesomeList"></div>
-            <input
-              type="text"
-              id="textfieldTitle"
-              placeholder="Title"
-            /><br /><br />
-            <input
-              type="text"
-              id="textfieldAuthor"
-              placeholder="Author"
-            /><br /><br />
-            <button type="button" id="btnAdd">Add Book</button>
+  <body class="bdy">
+    <div class="container mt-5">
+      <h1>All Awesome Books</h1>
+      <div id="bookList" class="border"></div>
+      <div class="mb-4 textfield-and-btn">
+        <span class="line"></span>
+        <h5 class="add-book-btn">Add a new book</h5>
+        <div class="textfield-and-bt">
+          <div class="textfields">
+            <div class="textfield">
+              <input
+                type="text"
+                id="titleInput"
+                class="form-control"
+                placeholder="Title"
+              />
+            </div>
+            <div class="textfield">
+              <input
+                type="text"
+                id="authorInput"
+                class="form-control"
+                placeholder="Author"
+              />
+            </div>
           </div>
+          <button id="addBtn" type="submit" class="btn btn-primary mt-2">Add</button>
         </div>
-      </article>
-    </main>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

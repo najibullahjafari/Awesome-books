@@ -1,4 +1,87 @@
-* {
-  margin: 1px;
-  padding: 0;
+h1 {
+  justify-content: center;
+  text-align: center;
+}
+
+#booklist {
+  padding: 0 !important;
+  min-height: 200px;
+}
+
+.book-item {
+  background-color: #726f6f;
+  color: #fff;
+  padding: 5px;
+  margin: 2px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.book-item:nth-child(even) {
+  background-color: #fff;
+  color: #000;
+}
+
+.border {
+  border: 1px solid #000 !important;
+  margin-bottom: 12px !important;
+}
+
+.textfields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.textfield {
+  width: 200px;
+}
+
+.textfield-and-btn {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.add-book-btn {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px black;
+  margin: 24px;
+  padding: 12px;
+}
+
+.textfield-and-bt {
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  margin-left: 138px;
+}
+
+body {
+  background-color: solid #0f130a;
+  background-size: contain;
+  backdrop-filter: blur(14px);
+}
+
+.container {
+  background-color: #dcd9d9;
+  backdrop-filter: none;
+  overflow: auto;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.line {
+  display: inline-block;
+  padding: 10px;
+  border-bottom: 2px solid #000;
+  width: 200px;
 }
