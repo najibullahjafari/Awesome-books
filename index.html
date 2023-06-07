@@ -10,7 +10,22 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bdy">
+  <header>
+    <nav class="container navigation nav nav-pills">
+      <div class="awesome-book-list">
+        <h5>Awesome books</h5>
+        <button type="button" onclick="showList(this)">list</button>
+      </div>
+      <div class="add-new-container">
+        <button type="button" onclick="addNew(this)">Add new</button>
+      </div>
+      <div class="add-new-container">
+        <button type="button" onclick="contact(this)">Contact</button>
+      </div>
+    </nav>
+  </header>
+  <body class="bdy" onload="displayDatas">
+    <div class="dispay-data"></div>
     <div class="container mt-5">
       <h1>All Awesome Books</h1>
       <div id="bookList" class="border"></div>
@@ -36,7 +51,10 @@
               />
             </div>
           </div>
-          <button id="addBtn" type="submit" class="btn btn-primary mt-2">Add</button>
+          <div class="contact-container"></div>
+          <button id="addBtn" type="submit" class="btn btn-primary mt-2">
+            Add
+          </button>
         </div>
       </div>
     </div>

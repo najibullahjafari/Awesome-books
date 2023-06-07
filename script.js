@@ -14,7 +14,7 @@ class BookCollection {
   saveBooks() {
     localStorage.setItem('books', JSON.stringify(this.books));
   }
-  
+
   addBook(title, author) {
     const book = new Book(title, author);
     this.books.push(book);
@@ -88,3 +88,30 @@ addBtn.addEventListener('click', () => {
     authorInput.value = '';
   }
 });
+
+const addNewbook = document.querySelector('.textfield-and-btn');
+const bookLists = document.getElementById('bookList');
+const contactPage = document.querySelector('.contact-container');
+const displayData = document.querySelector('.dispay-data');
+
+function showList(list) {
+  bookLists.style.display = 'block';
+  addNewbook.style.display = 'none';
+  contactPage.style.display = 'none';
+}
+
+function addNew(list) {
+  bookLists.style.display = 'none';
+  addNewbook.style.display = 'block';
+  contactPage.style.display = 'none';
+}
+
+function contact(list) {
+  bookLists.style.display = 'none';
+  addNewbook.style.display = 'none';
+  contactPage.style.display = 'block';
+}
+
+function displayDatas() {
+  displayData.innerHTML = Data();
+}
