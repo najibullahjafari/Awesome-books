@@ -69,7 +69,7 @@ In this project best coding practices is used.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-<!-- Check out the live demo of this project [here]()). -->
+Check out the live demo of this project [here](https://najibullahjafari.github.io/Awesome-books/).
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
