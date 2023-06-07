@@ -41,6 +41,7 @@ It is a library!
 - GIT,
 - GITHUB
 - LINTERS
+- Bootstrap
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -112,7 +113,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/najibullahjafari/Legendary-Portfolios
+  git clone https://github.com/najibullahjafari/Awesome-books
 ```
 
 ### Install
@@ -181,7 +182,7 @@ Your working browser.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/najibullahjafari/Legendary-Portfolios/issues).
+Feel free to check the [issues page](https://github.com/najibullahjafari/Awesome-books/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
