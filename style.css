@@ -19,7 +19,7 @@ h1 {
 }
 
 .book-item:nth-child(even) {
-  background-color: #ffffff;
+  background-color: #fff;
   color: #000;
 }
 
