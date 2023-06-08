@@ -97,35 +97,42 @@ const contactPage = document.querySelector('.contact-container');
 const displayData = document.querySelector('.dispay-data');
 const pageHeader = document.querySelector('.page-header');
 const addNewBtn = document.querySelector('.nav-btn-add');
+const addNewBooks = document.querySelector('.textfield-and-btn');
 
-function showList(list) {
+function showList() {
   bookLists.style.display = 'block';
   addNewbook.style.display = 'none';
   contactPage.style.display = 'none';
-  pageHeader.innerHTML = `<h1>All Awseome Books</h1>`;
+  pageHeader.innerHTML = `<h1>All Awesome Books</h1>`;
 }
+showList();
 
-function addNew(list) {
+function addNew() {
   bookLists.style.display = 'none';
   addNewbook.style.display = 'block';
   contactPage.style.display = 'none';
   pageHeader.innerHTML = `<h1>Add a new book</h1>`;
 }
+addNew();
 
-function contact(list) {
+function contact() {
   bookLists.style.display = 'none';
   addNewbook.style.display = 'none';
   contactPage.style.display = 'block';
   pageHeader.innerHTML = `<h1>Contact Infrormation</h1>`;
 }
+contact();
 
 function displayDatas() {
-  bookLists.style.display = 'none';
+  addNewBooks.style.display = 'none';
+  bookLists.style.display = 'block';
   contactPage.style.display = 'none';
+  pageHeader.innerHTML = '<h1>All Awesome Books</h1>';
   const currentDate = new Date();
   const formattedDate = currentDate.toDateString();
   displayData.textContent = formattedDate;
 }
+displayDatas();
 
 function updateAddNewBtn() {
   if (window.innerWidth < 768) {
@@ -137,8 +144,3 @@ function updateAddNewBtn() {
 
 updateAddNewBtn();
 window.addEventListener('resize', updateAddNewBtn);
-
-
-function clickMe(button) {
-  button.classList.toggle('clicked');
-}
