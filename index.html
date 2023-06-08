@@ -10,54 +10,82 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <header>
-    <nav class="container navigation nav nav-pills">
+  <header class="header-public">
+    <nav class="navbar mt-0 navigation navbar-expand-sm">
       <div class="awesome-book-list">
-        <h5>Awesome books</h5>
-        <button type="button" onclick="showList(this)">list</button>
+        <span class="header">Awesome books</span>
+        <button
+          class="btn-info btn btn-sm"
+          type="button"
+          onclick="showList(this), clickMe(this)"
+        >
+          list
+        </button>
       </div>
       <div class="add-new-container">
-        <button type="button" onclick="addNew(this)">Add new</button>
+        <button
+          class="nav-btn-add btn btn-info btn-sm"
+          type="button"
+          onclick="addNew(this)"
+        >
+          Add new
+        </button>
       </div>
       <div class="add-new-container">
-        <button type="button" onclick="contact(this)">Contact</button>
+        <button
+          class="nav-btn btn btn-info btn-sm"
+          type="button"
+          onclick="contact(this)"
+        >
+          Contact
+        </button>
       </div>
     </nav>
   </header>
-  <body class="bdy" onload="displayDatas">
-    <div class="dispay-data"></div>
-    <div class="container mt-5">
-      <h1>All Awesome Books</h1>
-      <div id="bookList" class="border"></div>
-      <div class="mb-4 textfield-and-btn">
-        <span class="line"></span>
-        <h5 class="add-book-btn">Add a new book</h5>
-        <div class="textfield-and-bt">
-          <div class="textfields">
-            <div class="textfield">
-              <input
-                type="text"
-                id="titleInput"
-                class="form-control"
-                placeholder="Title"
-              />
+  <body class="bdy" onload="displayDatas(this)">
+    <main class="wraper">
+      <div class="dispay-data"></div>
+      <div class="container">
+        <h1 class="page-header">All Awesome Books</h1>
+        <div id="bookList" class="border"></div>
+        <div class="mb-4 textfield-and-btn">
+          <div class="textfield-and-bt">
+            <div class="textfields">
+              <div class="textfield">
+                <input
+                  type="text"
+                  id="titleInput"
+                  class="form-control"
+                  placeholder="Title"
+                />
+              </div>
+              <div class="textfield">
+                <input
+                  type="text"
+                  id="authorInput"
+                  class="form-control"
+                  placeholder="Author"
+                />
+              </div>
             </div>
-            <div class="textfield">
-              <input
-                type="text"
-                id="authorInput"
-                class="form-control"
-                placeholder="Author"
-              />
-            </div>
+            <button id="addBtn" type="submit" class="btn btn-primary mt-2">
+              Add
+            </button>
           </div>
-          <div class="contact-container"></div>
-          <button id="addBtn" type="submit" class="btn btn-primary mt-2">
-            Add
-          </button>
+        </div>
+        <div class="contact-container">
+          <p class="contact-paragraph">
+            Do you have any question or you want just say "Hello!"?
+          </p>
+          <ul class="contact-unorderedlist">
+            <li>Our email: tuta@gamil.com</li>
+            <li>OUr phone number: +1 298237498573</li>
+            <li>Our address: PU 34, 8736 city, United stats</li>
+          </ul>
         </div>
       </div>
-    </div>
+      <footer>&copy; Najibullah Jafari 2023</footer>
+    </main>
 
     <script src="script.js"></script>
   </body>

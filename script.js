@@ -1,3 +1,5 @@
+// PUBLIC CLASSES
+
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -93,25 +95,50 @@ const addNewbook = document.querySelector('.textfield-and-btn');
 const bookLists = document.getElementById('bookList');
 const contactPage = document.querySelector('.contact-container');
 const displayData = document.querySelector('.dispay-data');
+const pageHeader = document.querySelector('.page-header');
+const addNewBtn = document.querySelector('.nav-btn-add');
 
 function showList(list) {
   bookLists.style.display = 'block';
   addNewbook.style.display = 'none';
   contactPage.style.display = 'none';
+  pageHeader.innerHTML = `<h1>All Awseome Books</h1>`;
 }
 
 function addNew(list) {
   bookLists.style.display = 'none';
   addNewbook.style.display = 'block';
   contactPage.style.display = 'none';
+  pageHeader.innerHTML = `<h1>Add a new book</h1>`;
 }
 
 function contact(list) {
   bookLists.style.display = 'none';
   addNewbook.style.display = 'none';
   contactPage.style.display = 'block';
+  pageHeader.innerHTML = `<h1>Contact Infrormation</h1>`;
 }
 
 function displayDatas() {
-  displayData.innerHTML = Data();
+  bookLists.style.display = 'none';
+  contactPage.style.display = 'none';
+  const currentDate = new Date();
+  const formattedDate = currentDate.toDateString();
+  displayData.textContent = formattedDate;
+}
+
+function updateAddNewBtn() {
+  if (window.innerWidth < 768) {
+    addNewBtn.innerHTML = `<span>Add</span>`;
+  } else {
+    addNewBtn.innerHTML = `<span>Add new</span>`;
+  }
+}
+
+updateAddNewBtn();
+window.addEventListener('resize', updateAddNewBtn);
+
+
+function clickMe(button) {
+  button.classList.toggle('clicked');
 }
