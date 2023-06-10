@@ -169,6 +169,12 @@ Your working browser.
 - Twitter: [Najibullah_jafari](https://twitter.com/Najib_Jafari_)
 - LinkedIn: [Najibullah_jafari](https://www.linkedin.com/in/najibulla-jafari-609852263/)
 
+👤 Solomon G. Kidanu
+
+- GitHub: [Solomon](https://github.com/solog0039)
+- Twitter: [Solomon](https://twitter.com/Solomon57320119)
+- LinkedIn: [Solomon](https://www.linkedin.com/in/solomon-kidanu-62a994232/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
