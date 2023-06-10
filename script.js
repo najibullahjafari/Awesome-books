@@ -1,6 +1,6 @@
 // PUBLIC CLASSES
 
-class Book {
+class Novel {
   constructor(title, author) {
     this.title = title;
     this.author = author;
@@ -8,73 +8,73 @@ class Book {
   }
 }
 
-class BookCollection {
+class NovelCollection {
   constructor() {
-    this.books = [];
+    this.novels = [];
   }
 
-  saveBooks() {
-    localStorage.setItem('books', JSON.stringify(this.books));
+  saveNovels() {
+    localStorage.setItem('novels', JSON.stringify(this.novels));
   }
 
-  addBook(title, author) {
-    const book = new Book(title, author);
-    this.books.push(book);
-    this.saveBooks();
-    this.displayBooks();
+  addNovel(title, author) {
+    const novel = new Novel(title, author);
+    this.novels.push(novel);
+    this.saveNovels();
+    this.displayNovels();
   }
 
-  removeBook(id) {
-    this.books = this.books.filter((book) => book.id !== id);
-    this.saveBooks();
-    this.displayBooks();
+  removeNovel(id) {
+    this.novels = this.novels.filter((novel) => novel.id !== id);
+    this.saveNovels();
+    this.displayNovels();
   }
 
-  loadBooks() {
-    const storedBooks = localStorage.getItem('books');
-    if (storedBooks) {
-      this.books = JSON.parse(storedBooks);
+  loadNovels() {
+    const storedNovels = localStorage.getItem('novels');
+    if (storedNovels) {
+      this.novels = JSON.parse(storedNovels);
     }
   }
 
-  displayBooks() {
-    const bookList = document.getElementById('bookList');
-    bookList.innerHTML = '';
+  displayNovels() {
+    const novelList = document.getElementById('bookList');
+    novelList.innerHTML = '';
 
-    this.books.forEach((book, index) => {
-      const bookItem = document.createElement('div');
-      bookItem.classList.add('book-item');
+    this.novels.forEach((novel, index) => {
+      const novelItem = document.createElement('div');
+      novelItem.classList.add('book-item');
       if (index % 2 === 0) {
-        bookItem.classList.add('even');
+        novelItem.classList.add('even');
       } else {
-        bookItem.classList.add('odd');
+        novelItem.classList.add('odd');
       }
 
-      const bookInfo = document.createElement('span');
-      bookInfo.textContent = `${book.title} by ${book.author}`;
+      const novelInfo = document.createElement('span');
+      novelInfo.textContent = `${novel.title} by ${novel.author}`;
 
       const removeBtn = document.createElement('button');
       removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
       removeBtn.textContent = 'Remove';
-      removeBtn.addEventListener('click', () => this.removeBook(book.id));
+      removeBtn.addEventListener('click', () => this.removeNovel(novel.id));
 
-      bookItem.appendChild(bookInfo);
-      bookItem.appendChild(removeBtn);
+      novelItem.appendChild(novelInfo);
+      novelItem.appendChild(removeBtn);
 
-      bookList.appendChild(bookItem);
+      novelList.appendChild(novelItem);
     });
 
-    if (this.books.length > 0) {
-      bookList.classList.add('border');
+    if (this.novels.length > 0) {
+      novelList.classList.add('border');
     } else {
-      bookList.classList.remove('border');
+      novelList.classList.remove('border');
     }
   }
 }
 
-const bookCollection = new BookCollection();
-bookCollection.loadBooks();
-bookCollection.displayBooks();
+const novelCollection = new NovelCollection();
+novelCollection.loadNovels();
+novelCollection.displayNovels();
 
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', () => {
@@ -85,54 +85,54 @@ addBtn.addEventListener('click', () => {
   const author = authorInput.value.trim();
 
   if (title !== '' && author !== '') {
-    bookCollection.addBook(title, author);
+    novelCollection.addNovel(title, author);
     titleInput.value = '';
     authorInput.value = '';
   }
 });
 
-const addNewbook = document.querySelector('.textfield-and-btn');
-const bookLists = document.getElementById('bookList');
-const contactPage = document.querySelector('.contact-container');
-const displayData = document.querySelector('.dispay-data');
-const pageHeader = document.querySelector('.page-header');
+const addNewNovelSection = document.querySelector('.textfield-and-btn');
+const novelListSection = document.getElementById('bookList');
+const contactPageSection = document.querySelector('.contact-container');
+const displayDataSection = document.querySelector('.dispay-data');
+const pageHeaderSection = document.querySelector('.page-header');
 const addNewBtn = document.querySelector('.nav-btn-add');
-const addNewBooks = document.querySelector('.textfield-and-btn');
+const addNewNovelsSection = document.querySelector('.textfield-and-btn');
 
 function showList() {
-  bookLists.style.display = 'block';
-  addNewbook.style.display = 'none';
-  contactPage.style.display = 'none';
-  pageHeader.innerHTML = `<h1>All Awesome Books</h1>`;
+  novelListSection.style.display = 'block';
+  addNewNovelSection.style.display = 'none';
+  contactPageSection.style.display = 'none';
+  pageHeaderSection.innerHTML = `<h1>All Awesome Books</h1>`;
 }
 showList();
 
 function addNew() {
-  bookLists.style.display = 'none';
-  addNewbook.style.display = 'block';
-  contactPage.style.display = 'none';
-  pageHeader.innerHTML = `<h1>Add a new book</h1>`;
+  novelListSection.style.display = 'none';
+  addNewNovelSection.style.display = 'block';
+  contactPageSection.style.display = 'none';
+  pageHeaderSection.innerHTML = `<h1>Add a new Books</h1>`;
 }
 addNew();
 
 function contact() {
-  bookLists.style.display = 'none';
-  addNewbook.style.display = 'none';
-  contactPage.style.display = 'block';
-  pageHeader.innerHTML = `<h1>Contact Infrormation</h1>`;
+  novelListSection.style.display = 'none';
+  addNewNovelSection.style.display = 'none';
+  contactPageSection.style.display = 'block';
+  pageHeaderSection.innerHTML = `<h1>Contact Information</h1>`;
 }
 contact();
 
-function displayDatas() {
-  addNewBooks.style.display = 'none';
-  bookLists.style.display = 'block';
-  contactPage.style.display = 'none';
-  pageHeader.innerHTML = '<h1>All Awesome Books</h1>';
+function displayData() {
+  addNewNovelsSection.style.display = 'none';
+  novelListSection.style.display = 'block';
+  contactPageSection.style.display = 'none';
+  pageHeaderSection.innerHTML = '<h1>All Awesome Books</h1>';
   const currentDate = new Date();
   const formattedDate = currentDate.toDateString();
-  displayData.textContent = formattedDate;
+  displayDataSection.textContent = formattedDate;
 }
-displayDatas();
+displayData();
 
 function updateAddNewBtn() {
   if (window.innerWidth < 768) {
