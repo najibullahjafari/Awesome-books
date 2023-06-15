@@ -1,4 +1,4 @@
-// Import the necessary modules
+// Import 
 import { NovelCollection } from './modules/novelCollection.js';
 
 import { DateTime } from '../../node_modules/luxon/src/luxon.js';

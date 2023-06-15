@@ -1,3 +1,4 @@
 test.md
-node_modules/gi
+node_modules/
 node_modules
+node_modules/@hint/utils-network/
