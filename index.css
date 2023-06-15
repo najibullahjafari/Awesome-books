@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 255, 255) !important;
+  backdrop-filter: blur(14px);
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -14,11 +14,11 @@ h1 {
 
 .navigation {
   display: grid;
-  grid-template-columns: 6fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 3px 10px;
+  padding: 5px;
   gap: 5px;
   overflow: auto;
   border-radius: 0;
@@ -105,7 +105,7 @@ h1 {
   background-color: #dcd9d9;
   backdrop-filter: none;
   overflow: auto;
-  border-radius: 24px;
+  border-radius: 2px;
   justify-content: center;
   align-items: center;
   padding: 20px;
