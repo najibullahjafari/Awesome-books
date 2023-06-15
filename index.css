@@ -1,5 +1,5 @@
 body {
-  backdrop-filter: blur(14px);
+  background-color: rgb(255, 255, 255) !important;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -18,7 +18,7 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding:3px 10px;
+  padding: 3px 10px;
   gap: 5px;
   overflow: auto;
   border-radius: 0;
@@ -105,7 +105,7 @@ h1 {
   background-color: #dcd9d9;
   backdrop-filter: none;
   overflow: auto;
-  border-radius: 2px;
+  border-radius: 24px;
   justify-content: center;
   align-items: center;
   padding: 20px;
